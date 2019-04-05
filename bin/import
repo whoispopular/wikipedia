@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function sleep_until {
+    # Use $* to eliminate need for quotes
+    seconds=$(( $(date -d "$*" +%s) - $(date +%s) ))
+
+    # if it passed today, get it tomorrow
+    if [ $seconds -le 0 ]
+    then
+        seconds=$(( $(date -d "tomorrow $*" +%s) - $(date +%s) ))
+    fi
+
+    echo "Sleeping for $seconds seconds"
+    sleep $seconds
+}
+
+while [ true ]
+do
+    beginning_of_next_month=`date -d "+1 month -$(($(date +%-d))) days" +%F`
+    sleep_until $beginning_of_next_month
+
+    for language in ar en
+    do
+        echo -n "Importing ${language} wikipedia ... "
+
+        url=https://dumps.wikimedia.org/${language}wiki/latest/${language}wiki-latest-pages-articles-multistream.xml.bz2
+
+        curl $url \
+            | ./wikipedia-extract --config ../configs/people/${language}.json \
+            | ./wikipedia-insert --language $language --table people --entity Person
+
+        echo "Done"
+    done
+done

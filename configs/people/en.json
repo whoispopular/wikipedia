@@ -1,0 +1,54 @@
+{
+  "Category": {
+    "Pattern": "\\[\\[Category:(.+)\\]\\]",
+    "Allowed": [
+			"people by",
+			"people from"
+    ],
+    "Denied": [
+			"lists of"
+		]
+  },
+  "TitleLength": {
+    "Min": 4,
+    "Max": 50
+  },
+  "Title": {
+    "AllowContain": [
+      " "
+    ],
+		"RemoveExact": [
+			"The Most",
+			"Đỗ Mười",
+			"Đỗ Mậu",
+			"Lü Lin",
+			"R. K.",
+			"Lü Bu",
+			"Ed Ra",
+			"A Ge",
+			"The Rev",
+			"Tạ Tỵ",
+			"The Moment",
+			"The Way",
+			"Tự Đức",
+			"An Le",
+			"Đặng Sỹ",
+			"Zé Tó",
+			"Ý Nhi",
+			"Mr. V",
+			"H. Raja"
+		],
+		"RemoveContain": [
+			"،",
+			",",
+			"/",
+			"\\",
+			"{",
+			"}",
+			"Category",
+			" list ",
+			"List of",
+			"Lists of"
+		]
+  }
+}

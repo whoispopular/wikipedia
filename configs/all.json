@@ -1,0 +1,23 @@
+{
+  "Category": {
+    "Pattern": "\\[\\[Category:(.+)\\]\\]",
+    "Allowed": [
+      ""
+    ],
+    "Denied": [
+		]
+  },
+  "TitleLength": {
+    "Min": 1,
+    "Max": 500
+  },
+  "Title": {
+    "AllowContain": [
+      ""
+    ],
+		"RemoveExact": [
+		],
+		"RemoveContain": [
+		]
+  }
+}
